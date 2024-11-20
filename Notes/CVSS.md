@@ -1,4 +1,4 @@
-#security
+#general #security
 
 ## CVSS (Common Vulnerability Scoring System) v2.0 Equations
 ### CVSS Base Score Equation

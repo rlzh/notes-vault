@@ -16,7 +16,23 @@
                 "file": "Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications"
+            }
+          },
+          {
+            "id": "18d88ec4d4f8a4b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes/Linear Programming.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Linear Programming"
             }
           }
         ]
@@ -39,7 +55,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabeticalReverse"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -48,13 +66,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#sengupta",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,14 +82,16 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 245.5086555480957
+    "width": 206.50043487548828
   },
   "right": {
     "id": "d2d5cadf429dda39",
@@ -93,7 +115,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications"
             }
           },
           {
@@ -105,7 +129,9 @@
                 "file": "Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications"
             }
           },
           {
@@ -116,7 +142,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -126,7 +154,9 @@
               "type": "outline",
               "state": {
                 "file": "Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications.md"
-              }
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications"
             }
           }
         ]
@@ -166,7 +196,21 @@
                   "type": "pdf",
                   "state": {
                     "file": "Focus/2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf"
-                  }
+                  },
+                  "icon": "lucide-file-text",
+                  "title": "2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta"
+                }
+              },
+              {
+                "id": "061bdf7536722ef9",
+                "type": "leaf",
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "Focus/2008-AAMAS-playing-games-for-security-solve-Bayes-stackelberg-games-Praveen.pdf"
+                  },
+                  "icon": "lucide-file-text",
+                  "title": "2008-AAMAS-playing-games-for-security-solve-Bayes-stackelberg-games-Praveen"
                 }
               }
             ]
@@ -184,20 +228,27 @@
   },
   "active": "b0262d51968e44c4",
   "lastOpenFiles": [
-    "2024-11-18.md",
-    "Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications.md",
-    "Notes/2008 - Decomposed Optimal Bayesian Stackelberg Solver (DOBSS).md",
-    "Notes/Bayesian.md",
-    "Notes/Linear Programming.md",
     "Focus/2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf",
+    "Focus/2008-AAMAS-playing-games-for-security-solve-Bayes-stackelberg-games-Praveen.pdf",
+    "Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications.md",
+    "Mixed Integer Quadratic Program.md",
+    "Notes/2008 - Decomposed Optimal Bayesian Stackelberg Solver (DOBSS).md",
+    "Notes/Linear Programming.md",
+    "^Eq3.md",
+    "Notes/Bayes Theorem.md",
+    "^f22a62.md",
+    "Notes/Bayesian Stackelberg Game.md",
     "Notes/Stackelberg Game.md",
+    "Notes/Game Theory.md",
+    "Templates/Paper Review Template.md",
+    "Notes/CVSS.md",
+    "Notes/McCormick envelopes.md",
     "Notes/Problem Complexity.md",
     "Notes/Bayesian Game.md",
-    "Notes/Game Theory.md",
-    "Focus/2008-AAMAS-playing-games-for-security-solve-Bayes-stackelberg-games-Praveen.pdf",
-    "Templates/Paper Review Template.md",
-    "Notes/CVSSv2.md",
-    "Images/Pasted image 20241117212410.png",
+    "y.pub",
+    "y",
+    "2024-11-18.md",
+    "Images/complexity.png",
     "Images",
     "Focus/2020-IEEECommSurveys-survey-of-MTD-for-network-sec-Sengupta.pdf",
     "Templates/Untitled.md",
@@ -205,8 +256,6 @@
     "Unfiltered/s-survey-MTD-network-defense-sengupta2020.pdf",
     "Unfiltered/s-successor-representation.pdf",
     "Unfiltered/s-successor-features.pdf",
-    "Unfiltered/s-successor-features-2.pdf",
-    "Unfiltered/s-mtd-pomdp-despot-Shevock.pdf",
     "Notes/BSG-MTD.md",
     "home/ryan/Desktop/Readings/Focus/2017-AMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf.md",
     "paper.md",

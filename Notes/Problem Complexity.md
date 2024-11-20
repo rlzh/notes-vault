@@ -1,6 +1,6 @@
-#general
+#general #complexity
 
-[ref](https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard)
+from stack overflow discussion: [ref](https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard)
 
 **Decision Problem:** A problem with a **yes** or **no** answer
 
@@ -14,7 +14,7 @@
 
 - complexity class that represents set of all decision problems for which instances where the answer is *yes* have proofs that can be verified in polynomial time
 - given an instance of the problem and a certificate (or witness) to the answer being *yes*, we can check that it is correct in polynomial time
-- e.g., integer factorisation, where we are given $m$ and $n$ and we need to find an integer *f* with $1 < f < m$, such that $f$ divides $n$
+- e.g., integer factorization, where we are given $m$ and $n$ and we need to find an integer *f* with $1 < f < m$, such that $f$ divides $n$
 
 # NP-complete
 - complexity class that represents set of all problems $X$ in NP for which it is possible to reduce any other NP problem $Y$ into $X$ in polynomial time
@@ -32,4 +32,4 @@
 
 ### Relationship between P, NP, NP-complete, and NP-hard
 
-![[Pasted image 20241117212410.png]]
+![[complexity.png]]
