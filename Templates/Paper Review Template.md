@@ -1,18 +1,18 @@
 **author:** 
-**conference:**
+**conference/journal:**
 **year**:
 **file:** 
 # Summary
-
+todo...
 # Approach
-
+todo...
 # Evaluation
-
+todo...
 # Implementation
-
-# Notable Results
-
+todo...
+# Notables
+todo...
 # Future Work
-
+todo...
 
 
