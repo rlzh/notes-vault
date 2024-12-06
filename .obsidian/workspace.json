@@ -4,11 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "0b00de943ed9f742",
+        "id": "fa67b64c69c40947",
         "type": "tabs",
         "children": [
           {
-            "id": "dc643fc2fc8c1091",
+            "id": "29c41323d1ee0741",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Paper Notes/2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez"
+            }
+          },
+          {
+            "id": "2aeeca3dd96e3f9d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Paper Notes/2020 - Multi-agent Reinforcement Learning in Bayesian Stackelberg Markov Games for Adaptive Moving Target Defense - Sengupta.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2020 - Multi-agent Reinforcement Learning in Bayesian Stackelberg Markov Games for Adaptive Moving Target Defense - Sengupta"
+            }
+          },
+          {
+            "id": "480917bc9c99b038",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Paper Drafts/SEAMS 2025.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SEAMS 2025"
+            }
+          },
+          {
+            "id": "62ed1091c4b6e54d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,6 +61,34 @@
               },
               "icon": "lucide-file",
               "title": "Reinforcement Learning"
+            }
+          },
+          {
+            "id": "c0c8863202bae001",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Paper Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta"
+            }
+          },
+          {
+            "id": "b639eb94e6861d5a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Paper Drafts/SEAMS 2025.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SEAMS 2025"
             }
           }
         ]
@@ -40,7 +110,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "byModifiedTime"
+                "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -77,7 +147,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 263.5004348754883
+    "width": 250.50043487548828
   },
   "right": {
     "id": "d2d5cadf429dda39",
@@ -93,7 +163,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "General Notes/Reinforcement Learning.md",
+                "file": "Paper Notes/2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +173,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Reinforcement Learning"
+              "title": "Backlinks for 2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez"
             }
           },
           {
@@ -112,12 +182,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications.md",
+                "file": "Paper Notes/2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications"
+              "title": "Outgoing links from 2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez"
             }
           },
           {
@@ -139,10 +209,24 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "General Notes/Reinforcement Learning.md"
+                "file": "Paper Notes/2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Reinforcement Learning"
+              "title": "Outline of 2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez"
+            }
+          },
+          {
+            "id": "8db0d7f4d54f0067",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           }
         ],
@@ -150,8 +234,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 234.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -161,7 +244,8 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "publish:Publish changes...": false
     }
   },
   "floating": {
@@ -169,167 +253,113 @@
     "type": "floating",
     "children": [
       {
-        "id": "04d9dc71d00b4fcb",
+        "id": "a55ea9799b548804",
         "type": "window",
         "children": [
           {
-            "id": "e52151c86f5de04b",
+            "id": "c38d817d9636fc97",
             "type": "tabs",
             "children": [
               {
-                "id": "0edcbc172c605493",
+                "id": "b1803c32b01dc39f",
                 "type": "leaf",
                 "state": {
                   "type": "pdf",
                   "state": {
-                    "file": "Focus/2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf"
-                  },
-                  "icon": "lucide-file-text",
-                  "title": "2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta"
-                }
-              },
-              {
-                "id": "b0262d51968e44c4",
-                "type": "leaf",
-                "state": {
-                  "type": "pdf",
-                  "state": {
-                    "file": "Focus/2020-TransPrivSec-adaptive-defense-multi-stage-attack-using-POMDP-Hu.pdf"
-                  },
-                  "icon": "lucide-file-text",
-                  "title": "2020-TransPrivSec-adaptive-defense-multi-stage-attack-using-POMDP-Hu"
-                }
-              },
-              {
-                "id": "14d5af4098f712a3",
-                "type": "leaf",
-                "state": {
-                  "type": "pdf",
-                  "state": {
-                    "file": "Focus/2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf"
-                  },
-                  "icon": "lucide-file-text",
-                  "title": "2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta"
-                }
-              }
-            ],
-            "currentTab": 1
-          }
-        ],
-        "direction": "vertical",
-        "x": 72,
-        "y": 32,
-        "width": 1089,
-        "height": 1048,
-        "maximize": false,
-        "zoom": 2
-      },
-      {
-        "id": "9be187abc06b206a",
-        "type": "window",
-        "children": [
-          {
-            "id": "37081290a6f9b9b6",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "794e5a755452805a",
-                "type": "leaf",
-                "state": {
-                  "type": "pdf",
-                  "state": {
-                    "file": "Focus/2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li.pdf"
+                    "file": "Papers/Focus/2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li.pdf"
                   },
                   "icon": "lucide-file-text",
                   "title": "2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li"
                 }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 896,
-        "y": 280,
-        "width": 1024,
-        "height": 800,
-        "maximize": true,
-        "zoom": 2
-      },
-      {
-        "id": "ce47587dacf0e2a1",
-        "type": "window",
-        "children": [
-          {
-            "id": "c4c6707c87faf9e4",
-            "type": "tabs",
-            "children": [
+              },
               {
-                "id": "0890dd5c570a9350",
+                "id": "582fc0cb64c6d579",
                 "type": "leaf",
                 "state": {
                   "type": "pdf",
                   "state": {
-                    "file": "Focus/2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf"
+                    "file": "Papers/Focus/2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf"
+                  },
+                  "icon": "lucide-file-text",
+                  "title": "2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta"
+                }
+              },
+              {
+                "id": "74f48f4a8886ba9c",
+                "type": "leaf",
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "Papers/Focus/2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf"
                   },
                   "icon": "lucide-file-text",
                   "title": "2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta"
                 }
               },
               {
-                "id": "12301a17e38a6b17",
+                "id": "7bc7d8fc400c6029",
                 "type": "leaf",
                 "state": {
                   "type": "pdf",
                   "state": {
-                    "file": "Filtered/mtd/2014-MTD-RL-algorithms-for-adaptive-cyber-defense-agaisnt-heartbleed-Zhu.pdf"
+                    "file": "Papers/Focus/2012-NIPS-efficient-bayes-adaptive-reinforcement-learning-using-sample-based-search-Guez.pdf"
                   },
                   "icon": "lucide-file-text",
-                  "title": "2014-MTD-RL-algorithms-for-adaptive-cyber-defense-agaisnt-heartbleed-Zhu"
-                }
-              },
-              {
-                "id": "8266e51b4405035e",
-                "type": "leaf",
-                "state": {
-                  "type": "pdf",
-                  "state": {
-                    "file": "Focus/2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf"
-                  },
-                  "icon": "lucide-file-text",
-                  "title": "2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta"
+                  "title": "2012-NIPS-efficient-bayes-adaptive-reinforcement-learning-using-sample-based-search-Guez"
                 }
               }
-            ]
+            ],
+            "currentTab": 3
           }
         ],
         "direction": "vertical",
-        "x": 653,
-        "y": 256,
-        "width": 686,
+        "x": 3017,
+        "y": 72,
+        "width": 823,
         "height": 600,
         "maximize": true,
-        "zoom": 2
+        "zoom": 1
       }
     ]
   },
-  "active": "dc643fc2fc8c1091",
+  "active": "29c41323d1ee0741",
   "lastOpenFiles": [
-    "Paper Notes/2022 - Robust Moving Target Defense against Unknown Attacks A Meta-Reinforcement Learning Approach - Li.md",
-    "Focus/2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li.pdf",
-    "Reference Images/reptile-meta-RL-for-MTD-algo.png",
-    "Focus/2019-arxiv-optimal-timing-of-MTD-stackelberg-game-model-Li.pdf",
-    "Focus/2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf",
-    "Paper Notes/2008 - Decomposed Optimal Bayesian Stackelberg Solver (DOBSS) - Paruchuri.md",
-    "Paper Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta.md",
-    "Paper Notes/2024 - Inherently Interpretable and Uncertainty-aware Models for Online Learning in Cyber-Security Problems - Kolicic.md",
-    "Paper Notes/2014 - Reinforcement Learning Algorithms for Adaptive Cyber Defense against Heartbleed - Zhu.md",
-    "Paper Notes/2020 - Multi-agent Reinforcement Learning in Bayesian Stackelberg Markov Games for Adaptive Moving Target Defense - Sengupta.md",
-    "Paper Notes/2020 - Adaptive Cyber Defense Against Multi-Stage Attacks Using Learning-based  POMDP - Hu.md",
-    "Focus/2020-TransPrivSec-adaptive-defense-multi-stage-attack-using-POMDP-Hu.pdf",
-    "Focus/2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf",
     "General Notes/Reinforcement Learning.md",
+    "Paper Notes/2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez.md",
+    "Reference Images/bamcp-algo.png",
+    "Papers/Focus/2012-NIPS-efficient-bayes-adaptive-reinforcement-learning-using-sample-based-search-Guez.pdf",
+    "Paper Drafts/SEAMS 2025.md",
     "General Notes/Bayes' Theorem.md",
+    "General Notes/Statistics.md",
+    "General Notes/Markov Decision Process.md",
+    "General Notes/Cryptography.md",
+    "General Notes/Bayesian Game.md",
+    "Paper Notes/2020 - Multi-agent Reinforcement Learning in Bayesian Stackelberg Markov Games for Adaptive Moving Target Defense - Sengupta.md",
+    "Papers",
+    "Paper Notes/2022 - Robust Moving Target Defense against Unknown Attacks A Meta-Reinforcement Learning Approach - Li.md",
+    "Papers/Focus/2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li.pdf",
+    "Papers/Focus/2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf",
+    "Papers/Focus/2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf",
+    "Paper Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta.md",
+    "Untitled.md",
+    "Reference Images/robust-mtd-meta-rl-experiment-params.png",
+    "Papers/Filtered/mtd/2014-MTD-RL-algorithms-for-adaptive-cyber-defense-agaisnt-heartbleed-Zhu.pdf",
+    "General Notes/Stackelberg Game.md",
+    "General Notes/Game Theory.md",
+    "Papers/Focus/2020-TransPrivSec-adaptive-defense-multi-stage-attack-using-POMDP-Hu.pdf",
+    "Paper Notes/2020 - Adaptive Cyber Defense Against Multi-Stage Attacks Using Learning-based  POMDP - Hu.md",
     "General Notes/Fundamental Logic.md",
+    "General Notes/Problem Complexity.md",
+    "General Notes/CVSS.md",
+    "General Notes/Laplace Transform.md",
+    "Papers/Focus/2019-arXiv-bayesian-policy-optimization-for-model-uncertainty-Lee.pdf",
+    "mtd-rl.drawio",
+    "mtd.drawio",
+    "Paper Notes/2024 - Inherently Interpretable and Uncertainty-aware Models for Online Learning in Cyber-Security Problems - Kolicic.md",
+    "Miscellaneous.md",
+    "Reference Images/reptile-meta-RL-for-MTD-algo.png",
+    "Paper Notes/2008 - Decomposed Optimal Bayesian Stackelberg Solver (DOBSS) - Paruchuri.md",
+    "Paper Notes/2014 - Reinforcement Learning Algorithms for Adaptive Cyber Defense against Heartbleed - Zhu.md",
     "Reference Images/GPI-flow.png",
     "Reference Images/gpi-relationship.png",
     "Pasted image 20241204213023.png",
@@ -337,28 +367,8 @@
     "Reference Images/policy-iteration-algo.png",
     "Reference Images/iterative-policy-eval-algo.png",
     "Reference Images/q-learning-algo.png",
-    "Reference Images/sarsa-control.png",
-    "Reference Images/tabular-TD(0).png",
-    "Filtered/mtd/2014-MTD-RL-algorithms-for-adaptive-cyber-defense-agaisnt-heartbleed-Zhu.pdf",
-    "Focus/2024-arXiv-interpretable-uncertainty-aware-models-for-online-learning-in-sec-Kolicic.pdf",
-    "Focus/20204-arXiv-interpretable-uncertainty-aware-models-for-online-learning-in-sec-Kolicic.pdf",
     "^dynamics.md",
     "General Notes/Machine Learning.md",
-    "General Notes/Linear Programming.md",
-    "General Notes/McCormick envelopes.md",
-    "General Notes/Statistics.md",
-    "General Notes/Laplace Transform.md",
-    "General Notes/Game Theory.md",
-    "General Notes/Cryptography.md",
-    "General Notes/Bayesian Game.md",
-    "General Notes/Stackelberg Game.md",
-    "General Notes/Bayesian Stackelberg Game.md",
-    "General Notes/Bayesian Stackelberg Markov Game.md",
-    "Templates/Paper Review Template.md",
-    "General Notes",
-    "Miscellaneous.md",
-    "2024-11-25.md",
-    "Untitled.canvas",
-    "Focus/2020-IEEECommSurveys-survey-of-MTD-for-network-sec-Sengupta.pdf"
+    "Untitled.canvas"
   ]
 }

@@ -18,14 +18,14 @@ $$
 \Delta^f \; \text{is the set of probability distributions over the follower's actions}
 $$
 $$
-u_i(a_l, a_f) \; \text{for} \; i \in {l, f} \; \text{i the utilities for the players}
+u_i(a_l, a_f) \; \text{for} \; i \in {l, f} \; \text{is the utilities for the players}
 $$
 with slight abuse in notation,
 $$
 u_i(x,y) = \mathbb{E}_{a_l \sim x,a_f \sim y}[u_i(a_l, a_f)]
 $$
 where $x\in \Delta^l$, $y \in \Delta^f$ are probability distributions over $A_l$ and $A_f$ 
-- In general, we assume leader commits to a strategy $x \in X$, and given such an $x$, the follower chooses their strategy from their best-response set,
+- In general, we assume leader commits to a strategy $x \in X$, and given such an $x$, the follower chooses their strategy from their ***best-response (BR)*** set,
 $$
 BR(x) = \arg \max_{y\in \Delta^f} u_f(x,y)
 $$
@@ -58,8 +58,8 @@ $$
 ## Security Game
 - For example, consider a game with two agents - leader type $\theta_1$ and and follower type $\theta_2$ 
 - There is only 1 leader type; but there are *multiple* follower types
-- The leader does not know the follower's type
-- for each agent $n$, there is a set of strategies $\sigma_n$  and a utility function $u_n : \theta_1 \times \theta_2 \times \sigma_1 \times \sigma_2 \longrightarrow \mathbb{R}$ 
+- **The leader does not know the follower's type**
+- For each agent $n$, there is a set of strategies $\sigma_n$  and a utility function $u_n : \theta_1 \times \theta_2 \times \sigma_1 \times \sigma_2 \longrightarrow \mathbb{R}$ 
 - ***Goal***: **find the optimal strategy for the leader to commit to; given the follower may know this mixed strategy when choosing their own strategy**
 - Bayesian games can be transformed into [[Game Theory#Normal-form Game|normal-form game]] using [[Game Theory#Harsanyi Transformation|Harsanyi transformation]]
 	- After transforming, existing linear programming-based methods can be used to find the optimal strategy

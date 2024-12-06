@@ -13,11 +13,11 @@ Evaluation is done on simple scenario with only 4 different configurations, 3 ty
 
 # Approach
 - Models MTD scenario as [[Stackelberg Game#Bayesian Stackelberg Game|BSG]] (i.e., combination of [[Stackelberg Game]] and [[Bayesian Game]]) ^c18c3c
- - a web app has a set of configs (tech stacks) (e.g., (Python, MySQL), (Java, Postgres), etc.)
-- attacks on system defined based on defined based on public dataset (NVD 2013-2016)
-- switching between configs has a cost (similar configs have lower cost; different configs have higher cost)
-- defender needs to decide next valid config given *current config*
-- states modelled based on configurations available to the defender
+- A web app has a set of configs (tech stacks) (e.g., (Python, MySQL), (Java, Postgres), etc.)
+- Attacks on system defined based on defined based on public dataset (NVD 2013-2016)
+- Switching between configs has a cost (similar configs have lower cost; different configs have higher cost)
+- Defender needs to decide next valid config given *current config*
+- States modelled based on configurations available to the defender
 $$
 C=C_1 \times C_2 \times C_3 \times ... \times C_n \quad \text{where} \; C_i \; \text{is set of technologies available in} \; i^{th} \; \text{layer}
 $$

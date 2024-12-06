@@ -1,6 +1,6 @@
 #general #RL #markov 
 - Computational approach to understanding and automating goal-oriented learning and decision making
-- Uses the formal framework of [[#Markov Decision Process (MDP)]] to define the interaction between a learning agent and its environment in terms of states, actions, and rewards
+- Uses the formal framework of [[Markov Decision Process]] to define the interaction between a learning agent and its environment in terms of states, actions, and rewards
 - Goal is learning what to do (how to map states to actions) so as to maximize a numerical reward signal (function) over the long run; or *maximize the [[#Expected Return]]*
 - Agent discovers which actions yield the most reward by trying them in the environment
 - Inherent trade-off between exploration v.s. exploitation 
@@ -106,6 +106,10 @@ $$G_t = R_{t+1} + R_{t+2} + ... + R_T$$
 	$$q_*(s,a) = \max_{\pi} q_\pi(s,a), \; \forall s \in \mathcal{S}, a \in \mathcal{A}(s)$$
 - We can also write $q_*$ in terms of $v_*$ as follows,
 	$$q_*(s,a) = \mathbb{E}[R_{t+1}+\gamma v_*(S_{t+1})|S_t = s, A_t=a]$$
+
+## Expected Reward for State-Action pairs
+- $r: \mathcal{S} \times \mathcal{A} \times \mathcal{S} \rightarrow \mathbb{R}$ 
+$$r(s,a) = \mathbb{E}[R_t|S_{t-1}=s, A_{t-1} = a] = \sum_{r\in \mathcal{R}}r\sum_{s' \in \mathcal{S}}p(s',r|s,a)$$
 ## Bellman Equation
 - For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states,
 	$$
@@ -120,8 +124,8 @@ $$G_t = R_{t+1} + R_{t+2} + ... + R_T$$
 - This expresses the relationship between the value of a state and the values of its successor states
 - It averages over all possibilities, weighting each by its probability of occurring 
 	- It states that the value of the start state must be equal to the (discounted) value of the expected next state, plus the rewards expected along the way
-	![[backup-bellman-state-value-function.png]]
-	![[backup-bellman-action-value-function.png]]
+	![[backup-bellman-state-value-function.png|150]]
+	![[backup-bellman-action-value-function.png|150]]
 ## Bellman Optimality Equation
 - The [[#Optimal State-value function]] $v_*$ must also satisfy the self-consistency condition given by the [[#Bellman Equation]]; thus allowing $v_*$ to be expressed in a special form without reference to any specific policy as follows
 	$$
@@ -141,7 +145,7 @@ $$G_t = R_{t+1} + R_{t+2} + ... + R_T$$
 	&= \sum_{s',r}p(s',r|s,a)[r+\gamma\max_{a'}q_*(s',a')]
 	\end{align}
 	$$
-	![[backup-bellman-opt.png]]
+	![[backup-bellman-opt.png|400]]
 - The Bellman optimality equation is actually a system of equations, one for each state
 	- If there are $n$ states, then there are $n$ equations in $n$ unknowns
 - Once $v_*$ is known, it is easy to to determine an optimal policy
@@ -150,7 +154,7 @@ $$G_t = R_{t+1} + R_{t+2} + ... + R_T$$
 - Explicitly solving Bellman optimality equation is rarely directly useful; akin to exhaustive search!
 	- Requires that we know the dynamics of the system
 	- Requires we have enough computational resources to complete the computation
-	- Requires the Markov property
+	- Requires the [[Markov Decision Process#Markov Property|Markov Property]]
 # Action Value
 - The mean reward when an action is selected in a given state
 - Denoted as $q_*(a) = \mathbb{E}[R_t|A_t=a]$, which is generally *unknown* (this what we solve for)
@@ -161,50 +165,6 @@ $$
 where,
 - $\mathbb{1}_{predicate}$ is the random variable that is 1 if $predicate$ is true and 0 if not.
 - Goal is to make $Q_t(a)$ be close to $q_*(a)$
-
-# Markov Property
-- A state must include information about all aspects of past agent-environment interaction that makes a difference in the future
-	$$
-	P(s_{t+1}|s_t) = P(s_{t+1}|s_0,...,s_t)
-	$$
-# Markov Chain (MC)
-- Mathematical system that experiences transition from one state to another according to probabilistic rules
-- No matter how the process arrives at the the current state, possible future states are *fixed*
-- Stochastic process that is "memory-less"
-	- Stochastic: some values changing randomly over time
-## Properties
-- State $i$ has **period** $k \geq 1$ if any chain starting at and returning to $i$ must take a number of steps divisible by $k$ 
-	- If $k=1$, then state is **aperiodic**
-	- If $k > 1$, then state is **periodic**
-	- If all states are aperiodic, then Markov chain is aperiodic
-- A Markov chain is **irreducible** if there exists a chain of steps between any two states that has positive probability 
-- A state is **recurrent (transient)** if Markov chain will eventually return to it
-	- **Positive recurrent**: return within finite steps
-	- **Null recurrent**: otherwise
-- A state is **ergodic** if it is *positive recurrent and aperiodic*
-	- A Markov chain is ergodic if all of its states are *ergodic*
-
-# Markov Decision Process (MDP)
-- Formalization (framework) for sequential decision making
-- A 4-tuple $(\mathcal{S}, \mathcal{A}, p, \mathcal{R})$ where,
-	- $\mathcal{S}$ is set of states called **state space**
-	- $\mathcal{A}$ is set of actions called **action space**
-	- $p(s,r|s,a) = Pr\{(S_{t}=s', R_t=r|S_{t-1}=s, A_{t-1}=a)\}$ is the **dynamics** of the MDP^dynamics
-		- $p:\mathcal{S} \times \mathcal{R} \times \mathcal{S} \times \mathcal{A} \rightarrow [0,1]$ is an ordinary deterministic function of 4 arguments      
-		- $p$ specifies the probability distribution for each choice of $s$ and $a$, that is,
-		$$
-		\sum_{s'\in \mathcal{S}} \sum_{r\in \mathcal{R}} p(s', r|s,a) = 1, \; \forall s \in \mathcal{S}, \mathcal{a} \in \mathcal{A}(s)
-		$$
-	- $\mathcal{R}$ is the reward function, which gives the reward received immediately after going from state $s$ to $s'$ due to action $a$
-- MDP is an extension of Markov chain; different is addition of *actions and rewards*
-	- If all actions are "no-op" and all rewards are zero, then MDP = MC
-- From the 4-argument dynamics function $p$, one can compute anything else one might want to know about the environment,
-## State-transition probabilities
-- Denoted with slight abuse in notation, $p: \mathcal{S} \times \mathcal{S} \times \mathcal{A} \rightarrow [0,1]$
-$$p(s'|s,a) = Pr\{S_t=s'|S_{t-1}=s, A_{t-1}=a\} = \sum_{r\in \mathcal{R}} p(s', r|s,a)$$
-## Expected Reward for State-Action pairs
-- $r: \mathcal{S} \times \mathcal{A} \times \mathcal{S} \rightarrow \mathbb{R}$ 
-$$r(s,a) = \mathbb{E}[R_t|S_{t-1}=s, A_{t-1} = a] = \sum_{r\in \mathcal{R}}r\sum_{s' \in \mathcal{S}}p(s',r|s,a)$$
 # Tabular Solution Methods
 
 ## Multi-armed Bandit (k-armed bandit)
@@ -300,7 +260,7 @@ $$
 - Only works for episodic tasks; i.e., experience is divided into episodes and all episodes eventually terminate (no matter the actions selected)
 - Value estimates and policies are changed *only on the completion of episodes*
 	- MC methods are incremental in episode-by-episode sense
-	- Learn value functions from sample returns with the [[#Markov Decision Process (MDP)]] 
+	- Learn value functions from sample returns with the [[Markov Decision Process]]
 	- The value functions and corresponding policies still interact to obtain optimality using [[#Generalized Policy Iteration]]
 ### MC Prediction
 - Deals with the [[#Prediction Problem|prediction problem]]
@@ -311,6 +271,12 @@ $$
 ### Off-policy Prediction
 
 ### Off-policy Control
+
+### Monte-Carlo Tree Search
+
+### UCT Algorithm
+- Upper Confidence bounds for Trees
+- Algorithm deals with a flaw of Monte-Carlo Tre
 
 ## Temporal-Difference (TD)
 - Combination of [[#Monte Carlo (MC)]] and [[#Dynamic Programming (DP)|dynamic programming (DP) ideas]]
@@ -380,24 +346,3 @@ $$
 # N-step Bootstrapping
 todo...
 
-# Partially Observable Markov Decision Process (POMDP)
-- Agent is no longer able to determine state it is in reliably
-- Necessary to have *memory* of previous actions and observations to distinguish between states
-- Important facet of POMDP approach is that there is no distinction between actions taken to change state and actions taken to gain info
-	- Every action has both types of effects
-	- Optimal performance involves “value of info” calculation; agent choose action based on amount of info they provide, amount of reward they produce, and how they change state of environment
-## Belief state
-- Agent maintains belief state; is a probability distribution over state space
-- Summarize previous experience; State estimator updates belief state based on action and observation and current belief
-- Policy is a function of belief state 
-## Optimal policy 
-- Is solution of continuous space “belief MDP”
-- Very difficult to solve continuous space MDPs in general
-## Reward function 
-- Appears to be reward based on believing agent is in good state
-- Works because state estimator is constructed from a correct observation and transition mole of the world
-## Value functions for POMDPs
-- Goal is to find approximate optimal value function; using value iteration to construct optimal t-step value function over belief space each iteration
-- Policy trees (essentially equivalent to decision trees in decision theory to represent sequential decision policy)
-	- Agent’s non-stationary t-step policy can be represented using a policy tree
-	![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXednlZ5eE_gh6xFFrcstNaQ326bSwhPfpR4z8K3vqF1NsVt69H3075FcpfHjrrNhkor90NIOZbYjM1-vsVFBUN4VZ7IptMSORlf6F5-YoyRD0D7wVhFqPLef6n5Xyx7WNCE0fvznAYZIMGh6LXpLUzicAw?key=TO7E1UI3d4Js-AHQF9X4YA)

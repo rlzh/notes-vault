@@ -12,7 +12,8 @@
 - The set of possible outcomes in a sample space
 ## Range
 - The measurable space 
-
+# Latent Variable
+- A variable that cannot be directly observed but is instead estimated from other observed variables
 # Marginal Probability
 - Probability of an event irrespective of other random variables
 - Denoted as $P(A)$

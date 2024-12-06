@@ -1,2 +1,1 @@
-A world of surprises - Bencomo
-Bayesian Theory of surprise -
+A world of surprises: Bayesian Theory of surprise  Bencomo
