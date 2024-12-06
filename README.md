@@ -1,1 +1,1 @@
-My personal Obsidian vault
+My personal Obsidian vault for research
