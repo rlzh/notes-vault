@@ -35,11 +35,11 @@
 		\mathcal{R}^+(\langle s,h \rangle, a) = R(s,a)
 		$$
 - Together, **the tuple $M^+ = \langle S^+, A, \mathcal{P}^+, \mathcal{R}^+, \gamma \rangle$ forms the Bayes-Adaptive MDP (BAMDP)** for the MDP problem $M$
-	- Since the dynamics of the BAMDP are known, in can be solved to obtain the optimal action-value function (and the optimal policy from this)
+	- Since the **dynamics of the BAMDP are known**, in can be solved to obtain the optimal action-value function (and the optimal policy from this)
 		$$
 		Q^*(\langle s_t, h_t \rangle, a) = \max_\pi \mathbb{E}_\pi [\sum^\infty_{t'=t} \gamma^{t'-t} r_{t'}|a_t =a]
 		$$
-- Optimal actions in the BAMDP $M^+$ are executed *greedily* in the MDP $M$
+- **Optimal actions in the BAMDP $M^+$ are executed *greedily* in the MDP $M$**
 	- This constitutes the best action for a Bayesian agent based on its prior belief over $\mathcal{P}$
 - The expected performance of the BAMDP policy $\pi^{*+}$ in the MDP model is bounded by the optimal policy $\pi^*$ in the original MDP model
 	- Equality occurs when the prior only has support for the true model (dynamics)
@@ -62,7 +62,7 @@
 ### Root Sampling
 - **Main idea:** avoid the above *expensive* operation by only sampling a single transition model $\mathcal{P}^i$ from the posterior at the root of the search tree at the start of each simulation $i$
 	- Use $\mathcal{P}^i$  to generate all the necessary samples during the current simulation
-	- This is denoted as *Root Sampling*
+	- This is called ***Root Sampling***
 - Given an action from the UCT policy (defined above), the transition probability $\mathcal{P^i}$ corresponding to the current simulation $i$ is used to sample the next state
 	- i.e., at action node $(\langle s,h \rangle, a)$ , the next state $s'$ is sampled from $\mathcal{P}^i(s,a,\cdot)$ 
 	- the new state node is then set to $\langle s', has' \rangle$ 
@@ -76,14 +76,14 @@
 		$$
 - The tree policy treats the forward search as a meta-exploration problem
 	- Prefer to exploit regions of tree that currently appear to be better than others (using UCT), while also continuing to explore unknown or lesser known parts
-	- All parts of tree are eventually visited *infinitely many times*, which ensures the algorithm converges to *Bayes-optimal policy*
+	- All parts of tree are eventually visited *infinitely many times*, which ensures the algorithm converges to ***Bayes-optimal policy***
 - **Note:** the history of transitions $h$ is generally not very compact sufficient statistic of belief in MDPs
 	- Can be replaced with unordered transition counts $\psi$ to reduce the number of states (and complexity) in the BAMDP considerably 
 ### Lazy Sampling
 - **Main idea**: even [[#Root Sampling]] can be very computationally costly
-	- Propose sampling $\mathcal{P}$ *lazily* 
-	- i.e., creating only the particular transition probabilities that are *required* as the simulation traverses the tree (and also during rollout)
-- Consider $\mathcal{P}(s,a,\cdot)$ to be parameterized by a latent variable $\theta_{s,a}$ for each state and action pair
+	- Propose sampling $\mathcal{P}$ ***lazily*** 
+	- i.e., creating only the particular transition probabilities that are ***required*** as the simulation traverses the tree (and also during rollout)
+- Consider $\mathcal{P}(s,a,\cdot)$ to be **parameterized by a latent variable** $\theta_{s,a}$ for each state and action pair
 	- These may be depended on each other, and an additional set of latent variables $\phi$ 
 	- The posterior over $\mathcal{P}$ can be written as 
 		$$
@@ -95,7 +95,7 @@
 		$$
 		P(\Theta|\phi,h) = P(\theta_{s_1, a_1}|\phi,h)P(\theta_{s_1, a_1}|\Theta_1,\phi,h)...P(\theta_{s_T, a_T}|\Theta_{T-1},\phi,h)P(\Theta \setminus \Theta_T|\Theta_T,\phi,h)
 		$$
-	-  $T$ is the length of the simulation
+	-  $T$ is the **length of the simulation**
 	- $\Theta \setminus \Theta_T$ is the (random) set of parameters that are not required for a simulation
 - For each simulation $i$, we sample $P(\phi|h_t)$ at the root
 	- Then lazily sample $\theta_{s_t, a_t}$ parameters are required, conditioned on $\phi$ and all $\Theta_{t-1}$ parameters sampled for the current simulation

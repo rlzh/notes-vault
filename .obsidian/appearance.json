@@ -3,5 +3,6 @@
   "cssTheme": "",
   "showViewHeader": true,
   "baseFontSizeAction": true,
-  "baseFontSize": 13
+  "baseFontSize": 12,
+  "nativeMenus": false
 }

@@ -1,5 +1,6 @@
 {
   "alwaysUpdateLinks": true,
   "showLineNumber": true,
-  "showRibbon": true
+  "showRibbon": true,
+  "readableLineLength": false
 }
