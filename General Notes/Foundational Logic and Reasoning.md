@@ -1,4 +1,4 @@
-#definitions #logic  
+#definitions #logic  #reasoning
 # Definition
 - A precise and unambiguous description of the meaning of a term
 - Characterizes the meaning of an object (concept) by giving all the properties and only those properties that *must* be true

@@ -1,6 +1,6 @@
 #general #complexity
 
-from stack overflow discussion: [ref](https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard)
+mostly from StackOverflow discussion: [ref](https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard)
 
 # Decision Problem
 - A problem with a **yes** or **no** answer

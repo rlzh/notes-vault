@@ -136,7 +136,7 @@ When [[#Assumptions]] hold, the optimal defense policy in the sense of a general
 	- Set $\gamma = 1$ here such such that defender is allowed to query a limited number of samples within the fixed horizon $H$
 - Utilize [[2018-arxiv-TD3-Fujimoto.pdf|TD3]] for policy model ([[2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li.pdf#page=14&selection=22,1,25,0|ref]])
 	- https://stable-baselines.readthedocs.io/en/master/modules/td3.html 
-![[reptile-meta-RL-for-MTD-algo.png]]
+![[reptile-meta-RL-for-MTD-algo.png|700]]
 # Evaluation
 - Evaluation setup is similar to scenario in [[2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta]]
 	- 3 different types of potential attackers
@@ -169,6 +169,17 @@ When [[#Assumptions]] hold, the optimal defense policy in the sense of a general
 	- Regarding probability distribution of attacker type (this is assumed to be inaccurate)
 	- Some parts of solution is still assumed 
 		- An attack with Impact Score (IS) $\in [0,10]$ and Exploitability Score (ES) $\in [0, 10]$ will generate **$10 \times$ IS unit time loss and have $0.1 \times$ ES success rate** ([[2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li.pdf#page=12&selection=41,4,60,22|quote]])
+- Issue with experiment setup (Fig 2)
+	- Why would defender switch from Config #2 or #3 against DB attacker?
+		- The attack success rate for Config #2 and #3 is always zero!!
+	- Static defender strategy is **optimal** both attack types
+		- against Mainstream: [0, 1, 0, 0]
+		- against DB: [0, 1, 0, 0] or [0, 0, 0, 1]
+		- static defender strategy is an upper bound on RL-based solution [[2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li.pdf#page=14&selection=73,25,75,30|ref]]
+	- Fix?:
+		- randomly generate attacker type?
+		- sample from distribution
+
 # Future Work
 todo...
 

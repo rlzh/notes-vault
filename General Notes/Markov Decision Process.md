@@ -20,7 +20,6 @@
 	- **Null recurrent**: otherwise
 - A state is **ergodic** if it is *positive recurrent and aperiodic*
 	- A Markov chain is ergodic if all of its states are *ergodic*
-
 # Markov Decision Process (MDP)
 - Formalization (framework) for sequential decision making
 - A 4-tuple $(\mathcal{S}, \mathcal{A}, p, \mathcal{R})$ where,

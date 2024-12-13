@@ -5,6 +5,8 @@
 - Agent discovers which actions yield the most reward by trying them in the environment
 - Inherent trade-off between exploration v.s. exploitation 
 - Primary elements of RL include: [[#Reward Signal]], [[#Policy]], [[#Value Function]], and (optionally) a [[#Model of the Environment]]
+# Reward Hypothesis:
+- All goals can be described as the maximization of the expected cumulative reward [[#Expected Return]]
 # Prediction Problem
 - The problem of estimating the [[#Value Function|value function]] $v_\pi$ (or action-value function $q_\pi$) for a given [[#Policy|policy]] $\pi$
 # Control Problem
@@ -68,6 +70,9 @@ $$G_t = R_{t+1} + R_{t+2} + ... + R_T$$
 - Each time step, the environment sends to the agent a single number called the *reward*
 - Defines what are the *good and bad* events for the agent
 	- Analogous to "pleasure" or "pain"
+# Exploration-Exploitation Trade-off
+- **Exploration**: trying random actions in the environment to find more information about the environment
+- **Exploitation**: exploiting known information to maximize reward
 # Policy
 - Algorithm an agent uses to determine its action in a given state
 - Maps from states to probabilities of selecting each possible action
@@ -96,6 +101,7 @@ $$G_t = R_{t+1} + R_{t+2} + ... + R_T$$
 - Shared by the [[#Optimal Policies]] and is denoted by $v_*$ and defined as,
 	$$v_*(s) = \max_{\pi} v_\pi(s), \; \forall s \in \mathcal{S}$$
 ## Action-value function
+- Or **State-action value function** or **Q-function**
 - The value of taking action $a$ in state $s$ under a policy $\pi$ is denoted $q_\pi(s,a)$
 	- It is the [[#Expected Return]] starting from $s$, taking action $a$, and following $\pi$ thereafter
 	$$
@@ -111,6 +117,7 @@ $$G_t = R_{t+1} + R_{t+2} + ... + R_T$$
 - $r: \mathcal{S} \times \mathcal{A} \times \mathcal{S} \rightarrow \mathbb{R}$ 
 $$r(s,a) = \mathbb{E}[R_t|S_{t-1}=s, A_{t-1} = a] = \sum_{r\in \mathcal{R}}r\sum_{s' \in \mathcal{S}}p(s',r|s,a)$$
 ## Bellman Equation
+- *Simplifies* the calculation of state value or state-action values
 - For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states,
 	$$
 	\begin{align}
@@ -257,6 +264,10 @@ $$
 - MC methods require only *experience* (i.e., sample sequences of states, actions, and rewards) from actual or simulated interaction with an environment
 	- [[#Dynamic Programming (DP)]] methods require complete probability distributions of all possible transitions
 - MC methods are solve RL problems based on *averaging sample returns*
+- Uses an *entire episode of experience before learning*
+	- **Learning at the end of the episode**
+	- Uses the return $G_t$ at end of episode as target for updating $V(S_t)$
+		$$V(S_t) \leftarrow V(S_t) + \alpha[G_t-V(S_t)]$$
 - Only works for episodic tasks; i.e., experience is divided into episodes and all episodes eventually terminate (no matter the actions selected)
 - Value estimates and policies are changed *only on the completion of episodes*
 	- MC methods are incremental in episode-by-episode sense
@@ -281,13 +292,14 @@ $$
 ## Temporal-Difference (TD)
 - Combination of [[#Monte Carlo (MC)]] and [[#Dynamic Programming (DP)|dynamic programming (DP) ideas]]
 	- Like Monte Carlo, TD learns directly from raw experience *without model of the environment's dynamics*
-	- Like DP, TD updates estimates based on other learned estimates, without waiting for final outcome (bootstrap)
+	- Like DP, TD updates estimates based on other learned estimates, without waiting for final outcome (***bootstrap***)
 - Central and novel to RL
+- Uses only a *step* $(S_t, A_t, R_{t+1}, S_{t+1})$ to learn
 ### TD Prediction
 - [[#Monte Carlo (MC)|Monte Carlo (MC) methods]] wait until the return following the visit is known, then use that return as a target for $V(S_t)$
 	- Simple every-state MC method suitable for non-stationary environment, called *constant*-$\alpha$ MC
 	$$V(S_t) \leftarrow V(S_t) + \alpha[G_t-V(S_t)]$$
-- Whereas MC methods must wait until end of episode to determine increment to $V(S_t)$, TD methods only need to wait until next time step $t+1$ to make a useful update based on observed reward $R_{t+1}$,
+- Whereas MC methods must wait until end of episode to determine increment to $V(S_t)$, **TD methods only need to wait until next time step** $t+1$ to make a useful update based on observed reward $R_{t+1}$,
 	$$V(S_t) \leftarrow V(S_t) + \alpha[R_{t+1}+\gamma V(S_{t+1})-V(S_t)]$$
 - The above is called ***TD(0) or one-step TD***
 ![[tabular-TD(0).png]]
@@ -304,7 +316,7 @@ $$
 	- TD target is an estimate for both reasons; it samples the expected values in  $R_{t+1} + \gamma v_\pi(S_{t+1})$ and it uses the current value of $V$ instead of the true $v_\pi$
 - TD combines sampling of MC and bootstrap of DP
 - TD (and MC) updates are referred to as ***sample updates***; because they involve looking ahead to a sample successor state
-- ***TD error*** is a measurement of difference between estimated value of $S_t$ and the better estimate $R_{t+1} + \gamma V(S_{t+1})$ 
+- ==***TD error*** is a measurement of difference between estimated value of $S_t$ (i.e., $V(S_t)$) and the better estimate $R_{t+1} + \gamma V(S_{t+1})$== 
 	$$\delta_t = R_{t+1} + \gamma V(S_{t+1}) - V(S_t)$$
 	- MC error can be written as sum of TD errors
 		$$G_t - V(S_t) = \sum^{T-1}_{k=t}\gamma^{k-t}\delta_k$$
@@ -323,15 +335,18 @@ $$
 	- Batch TD(0) converges to the certainty-equivalence estimate
 	- It is (in some sense) an optimal solution, but it is never feasible to compute it directly without using TD
 ### Sarsa
-- [[#On-policy methods|On-policy]] TD [[#Control Problem|control]] method
+- [[#On-policy methods|On-policy]] [[#Temporal-Difference (TD)]] [[#Control Problem|control]] method
 - First step is to learn [[#Action Value]] function; estimate $q_\pi(s,a)$ for current behaviour policy $\pi$ and for all states $s$ and actions $a$ 
 - This is similar to the idea of [[#TD Prediction]], except applied to state-action pairs
 	$$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha[R_{t+1} + \gamma Q(S_{t+1},A_{t+1})-Q(S_t, A_t)]$$
 	![[sarsa-control.png]]
 ### Q-learning
-- [[#Off-policy methods|Off-policy]] TD [[#Control Problem|control]] algorithm defined by the rule,
+- [[#Off-policy methods|Off-policy]] [[#Temporal-Difference (TD)]] [[#Control Problem|control]] algorithm defined by the rule,
 	$$Q(S_t,A_t) \leftarrow Q(S_t, A_t) + \alpha[R_{t+1}+\gamma \max_{a} Q(S_{t+1},a) - Q(S_t, A_t)]$$
 - The learned action-value function $Q$ directly approximates the optimal action-value function $q_*$, independent of the policy being followed 
+- *Q comes from "Quality" of the action in a state*
+- During training, $\epsilon$ value should progressively decrease as time increases
+	- As Q-table estimation gets better with training, we want to *exploit* more and *explore* less
 ![[q-learning-algo.png]]
 ### Expected Sarsa
 - Learning algorithm similar to [[#Q-learning]] except it uses the *expected value* for next state-action pair (instead of the maximum)
@@ -345,4 +360,8 @@ $$
 - Eliminates variance due to random selection of $A_{t+1}$ compared to [[#Sarsa]]
 # N-step Bootstrapping
 todo...
+
+
+
+
 

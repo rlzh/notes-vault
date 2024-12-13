@@ -1,4 +1,4 @@
-#general 
+#general #math 
 # Dual Problem
 todo...
 

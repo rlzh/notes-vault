@@ -1,9 +1,9 @@
 #paper #mtd #pomdp #RL #bayesian #uncertainty 
 
-**author:** Zhisheng Hu
+**author:** Hu
 **conference/journal:** ACM Transactions on Privacy and Security
 **year**: 2020
-**file:** [[2020-TransPrivSec-adaptive-defense-multi-stage-attack-using-POMDP-Hu.pdf|paper]]
+**file:** [[2020-TransPrivSec-adaptive-defense-multi-stage-attack-using-POMDP-Hu.pdf]]
 # Summary
 - Paper novelty
 1.  Deal with unknown state transition probabilities
@@ -26,7 +26,7 @@
 - defender actions include detection and reimage (assumes detection is implemented by manual/labour analysis! can only detect a small subset of machines in network!)
 - example of confidentiality impact: # of suspicious read ops on machine i
 - example of integrity impact: # of modified files on machine i
-- example of availability impact: # of lost connections or remaining disk space on machine i
+- example of availability impact: # of lost connections or remaining disk space on machine $i$
 - defender aims to find policy to maximize aggregate utility
 - focus on deterministic decisions
 # Evaluation

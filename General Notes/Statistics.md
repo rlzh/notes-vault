@@ -1,10 +1,9 @@
 
-#general  #stats
+#general  #stats #math 
 # Event
 - A set of outcomes from an experiment (subset of the sample space) to which a probability is assigned
 - A single outcome may be an element of many different events
 - An event consisting of only a single outcome is called an *elementary event (or atomic event)*
-
 # Random Variable
 - A mathematical formalization of a quantity or object which depends on random events
 - Often refers to a mathematical function
@@ -14,14 +13,17 @@
 - The measurable space 
 # Latent Variable
 - A variable that cannot be directly observed but is instead estimated from other observed variables
+# Expected value
+- The expected value is a generalization of the weighted average
+- Informally, it is the mean of the possible values a [[#Random Variable]] can take, weighted by the probability of those outcomes
+- For *discrete* random variable (with finite number of outcomes), the expected value is a weight sum of all possible outcomes
+- For *continuous* random variables (with a continuum of possible outcomes), the expected value is defined by *integration*
 # Marginal Probability
 - Probability of an event irrespective of other random variables
 - Denoted as $P(A)$
-
 # Joint Probability
 - Probability of two or more simultaneous events 
 - Denoted as $P(A\cap B)$ or $P(A \; \text{and} \; B)$ 
-
 # Conditional Probability
 - Probability of one (or more) events given the occurrence of another event
 - Denoted as $P(A|B)$ 
@@ -29,7 +31,6 @@
 $$
 P(A|B) = \frac{P(A\cap B)}{P(B)}, \text{if} \; P(B) \neq 0
 $$
-
 # Predictions
 
 ## Null Hypothesis
@@ -94,3 +95,12 @@ $$
 $$
 F1 = \frac{2\cdot Precision \cdot Recall}{Precsision + Recall}
 $$
+
+# Kullback-Leibler Divergence 
+- KL divergence is a type of **statistical "distance"**: ==a measure of how much a model probability distribution $Q$ is different from a *true* probability ditribution $P$==
+	- It is mathematically defined as,
+		$$D_{KL}(P||Q) = \sum_{x\in\mathcal{X}} P(x)log(\frac{P(x)}{Q(x)})$$
+- Simple interpretation of KL divergence of $P$ from $Q$ is the **[[#Expected value|expected]]** excess *surprise* from using $Q$ as a model instead of $P$ when the actual distribution is $P$
+- Not a real "distance" (not a metric)
+	- Does not satisfy the triangle inequality
+- Also called **relative entropy and I-divergence** 

@@ -1,4 +1,4 @@
-
+#general #ML 
 # Decision Trees (DT)
 - Requires little data preparation (don't require feature scaling or centering)
 - DTs are sensitive to small variations in data (unstable!)
@@ -19,13 +19,18 @@
     - cost function = $left\% \cdot MSE_{left} + right\% \cdot MSE_{right}$
     - $MSE =\sum (\text{average of samples} - y_i)^2$
 # Gradient Descent
-- Optimization algorithm that's used when training a machine learning model
+- **Iterative optimization algorithm that's used when training a machine learning model**
 	- Based on a *convex* function and tweaks its parameters iteratively to minimize a given cost/loss function
 - Requires a direction and a learning rate
-	- **Learning rate**: determines the size of the steps that are taken to reach the minimum
+	- **Learning rate** $\alpha$: determines the size of the steps that are taken to reach the minimum
 	- **Cost/loss function**: measures the difference between *actual value* and *predicted value* 
 		- Provide feedback to the model so that it can adjust its parameters 
-- The idea is to continuously move along the negative gradient (steepest descent) until the cost function is close to zero
+- The idea is to continuously move along the negative [[Calculus#Gradient|gradient]] (steepest descent) until the cost function is close to zero
+![[gradient-descent.png|300]]
+- The [[Calculus#Gradient|gradient]] is calculated with respect to a vector of parameters for the model, typically the weights $w$
+	- In neural networks, the process of applying gradient descent is called **backpropagation of error**
+		- Backpropagation uses the sign of the gradient to determine whether the weights should **increase or decrease**
+			$$w_{n+1} = w_{n} - \alpha \nabla_w f(w)$$
 ## Local Minima and Saddle Points
 - For convex problems, gradient descent can find the global minimum with ease
 - For non-convex problems, gradient descent can struggle to find the global minimum
@@ -33,11 +38,11 @@
 - Local minima mimic the shape of a global minimum
 - [[#Stochastic Gradient Descent|Noisy gradients]] can help with escaping local minima and saddle points
 ## Vanishing Gradient
-- Occurs when gradient is too small as we move backwards during back propagation
+- Occurs when [[Calculus#Gradient|gradient]] is too small as we move backwards during back propagation
 - This causes the earlier layers of the neural network to learn more slowly than later layers
 	- Weight parameter updates become insignificant; algorithm no longer learning
 ## Exploding Gradient
-- When the gradient is too large, which creates an *unstable* model
+- When the [[Calculus#Gradient|gradient]] is too large, which creates an *unstable* model
 	- Model weights grows too large and eventually be represented as NaN
 ## Batch Gradient Descent
 - Sums the error for each point in a training set and updates the model only after all training examples have been evaluated
@@ -50,11 +55,10 @@
 	- Results in **noisy gradients** due to frequent update
 - Easier to store in memory (since only need to hold one training example)
 - Trade-off speed for computational efficiency
-
 ## Mini-batch Gradient Descent
 - Combines [[#Batch Gradient Descent]] and [[#Stochastic Gradient Descent]]
 - Splits dataset into small batch sizes and performs updates on each batch
-
+![[gradient-descent-visual.png|500]]
 ## Adam
 - Optimization algorithm that can be used instead of classical [[#Stochastic Gradient Descent]], which maintains a single learning rate for all weight updates 
 - Adam computes individual adaptive learning rates for different parameters from estimates of the first and second moments of the gradient

@@ -4,5 +4,5 @@
   "showViewHeader": true,
   "baseFontSizeAction": true,
   "baseFontSize": 12,
-  "nativeMenus": false
+  "nativeMenus": true
 }

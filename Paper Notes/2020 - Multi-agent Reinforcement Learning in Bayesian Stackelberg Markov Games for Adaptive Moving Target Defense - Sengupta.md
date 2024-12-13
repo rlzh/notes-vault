@@ -44,16 +44,18 @@ Propose modelling MTD as [[#Bayesian Stackelberg Markov Game (BSMG)]] to capture
 	- ***This distribution remains the same in all states of the BSMG*** ([[2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf#page=4&annotation=612R|quote]])
 - Game starts in any of the states (configurations) at *random*
 - ***Attacker reward*** uses [[CVSS]] Impact score as if the chosen attack is *expected* to work (i.e., if the configuration is vulnerable to attack) on the defense configuration 
-- ***Defender cost*** appears to be is defined based on same [[#CVSS]] impact score (in the same manner as in [[2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta]]) ???
-	- But *switching cost* is no longer part of defender reward ??
+- ***Defender cost*** appears to be is defined based on same [[#CVSS]] impact score (in the same manner as in [[2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta]]) 
+	- But *switching cost* is no longer part of defender reward function 
+		- > In this setting, we do not capture the switching cost as part of the reward metric, but use it to guide the transition dynamics of the underlying environment [[2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf#page=17&selection=90,4,91,100|2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta, page 17]]
 - Transition between states is **stochastic** ([[2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf#page=18&selection=14,11,19,14|quote]])
-	- Because transitions are now based on 
+	- Because transitions are now based on switching costs
+	- Expensive switches between configurations have higher probability of failing
+	- When a switch fails, the system remains in the same configuration
 ## Strong Stackelberg Q-learning
 - Motivated by presence of (1) uncertainty in game parameters and (2) incomplete information regarding adversary
 - Use multi-agent RL approach for [[#Bayesian Stackelberg Markov Game (BSMG)]], which considers a Bellman-style Q-learning approach for calculating agent policies over time
 - **Adversary is simulated** and requires a simulation of the environment
-![[bayesian-strong-stackelberg-q-learning.png]]
-
+![[bayesian-strong-stackelberg-q-learning.png|800]]
 # Evaluation
 - Evaluation is based on comparing defender reward values over episodes
 - Not a lot of evaluation carried out overall (only 1 plot for each case study)
@@ -62,13 +64,13 @@ Propose modelling MTD as [[#Bayesian Stackelberg Markov Game (BSMG)]] to capture
 # Notables
 - Novelty is in considering incomplete information about adversary (improve on Markov Games) and generalize to *sequential* decision making settings (improve on Bayesian Games)
 - The **source of uncertainty** is 
-	- Incomplete information about adversaries (by information, it means the current *attacker type*)
-	- i.e., uncertainty means we do not know the exact type of attacker we are dealing with in each state, *but* the probability distribution of attacker types is assumed to be accurate
+	- Incomplete information about adversaries (by information, it means current *attacker type*)
+	- i.e., uncertainty means we do not know the exact type of attacker we are dealing with in each state, *but* the **probability distribution of attacker types is assumed to be accurate**
 - Expects to have a probability distribution $\theta_s$ over attacker types for each state $s$ of the game
-	- This $\theta_s$ stays the same for all $s$  in experiments!!
+	- **This $\theta_s$ stays the same for all $s$  in experiments** (may not be realistic?)
 - State transition is ***stochastic***
 - Defender rewards purely based on 
-- Ultimately, this *improves* on [[2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta]] by supporting sequential decision-making that is based on the current configuration of the system
+- Ultimately, this improves on [[2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta]] by supporting *sequential decision-making* that is based on the current configuration of the system
 		
 # Future Work
 

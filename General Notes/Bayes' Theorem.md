@@ -1,4 +1,4 @@
-#general #bayesian 
+#general #bayesian #stats #math 
 
 - Gives a mathematical rule for inverting [[Statistics#Conditional Probability|conditional probabilities]] 
 - Allows finding the probability of a cause given its effect
