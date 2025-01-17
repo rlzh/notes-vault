@@ -1,4 +1,5 @@
-**author:** Zhu
+#paper #RL 
+ **author:** Zhu
 **conference/journal:** MTD
 **year**: 2014
 **file:** [[2014-MTD-RL-algorithms-for-adaptive-cyber-defense-agaisnt-heartbleed-Zhu.pdf]]

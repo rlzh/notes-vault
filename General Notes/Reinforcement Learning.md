@@ -1,4 +1,4 @@
-#general #RL #markov 
+#general #RL #markov #ML 
 - Computational approach to understanding and automating goal-oriented learning and decision making
 - Uses the formal framework of [[Markov Decision Process]] to define the interaction between a learning agent and its environment in terms of states, actions, and rewards
 - Goal is learning what to do (how to map states to actions) so as to maximize a numerical reward signal (function) over the long run; or *maximize the [[#Expected Return]]*
@@ -25,15 +25,15 @@
 	- e.g., given a state and action, the model can predict the resultant next state and next reward
 - Models are used for *planning* (i.e., deciding on a course of action by considering possible future situations before they are experienced)
 ## Model-based RL
-- Require a *model of the environment*
+- Require a ***model of the environment***
 - Rely on *planning* as their primary component
-	- e.g., dynamic programming, heuristic search
+	- e.g., [[#Dynamic Programming (DP)]], heuristic search
 
 ## Model-free RL
-- Methods that can be used without a *model of the environment*
+- Methods that can be used **without a *model of the environment***
 - Rely on *learning* as their primary component
-	- e.g., Monte Carlo, temporal difference
-
+	- e.g., [[#Monte Carlo (MC)]], [[#Temporal-Difference (TD)]]
+- Do not use generated predictions of the next state, reward (by a model of the environment)
 
 # Expected Return
 ## Episodic Tasks

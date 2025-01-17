@@ -1,3 +1,3 @@
-My personal Obsidian vault for research
+My personal Obsidian vault for research-related notes
 
-- Repo should be opened using the Obsidian app: https://obsidian.md/download
+- This vault should be opened using the Obsidian app: https://obsidian.md/download

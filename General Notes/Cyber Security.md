@@ -1,10 +1,9 @@
 #general #security 
-
-# Cryptology:
+# Cryptology
 - Art and science of making and breaking "secret codes"
-# Cryptography:
+# Cryptography
 - Making of "secret codes"
-# Cryptoanalysis:
+# Cryptoanalysis
 - Breaking of "secret codes"
 # Kerckhoff's Principle
 - The inner workings of a cryptosystem should be/are *completely known to the adversary*

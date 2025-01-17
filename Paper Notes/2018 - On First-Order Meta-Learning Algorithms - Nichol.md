@@ -5,13 +5,11 @@
 **file:** [[2018-arxiv-first-order-meta-learning-algo-Nichol.pdf]]
 # Summary
 - Propose approach to learn a parameter initialization that can be fine-tuned quickly on a new task using only first-order derivatives for the meta-learning updates
-- Bayesian inference can be used to explain why human learning abilities is more efficient (data-wise) than machine learning algorithms
+- [[Bayes' Theorem|Bayesian inference]] can be used to explain why human learning abilities is more efficient (data-wise) than machine learning algorithms
 	- But making algorithms more Bayesian is challenging due to computational requirements (intractable)
 - Solution-based on **Model-agnostic Meta-Learning (MAML)**
-
-> Rather than trying to emulate Bayesian inference (which may be computationally intractable), meta-learning seeks to directly optimize a fast-learning algorithm, using a dataset of tasks
-[[2018-arxiv-first-order-meta-learning-algo-Nichol.pdf#page=1&selection=53,0,54,92|ref]]
-
+> 	Rather than trying to emulate Bayesian inference (which may be computationally intractable), meta-learning seeks to directly optimize a fast-learning algorithm, using a dataset of tasks
+	[[2018-arxiv-first-order-meta-learning-algo-Nichol.pdf#page=1&selection=53,0,54,92|ref]]
 # Approach
 ## MAML
 - Consider the optimization problem of MAML
@@ -38,10 +36,9 @@
 - Treats the Jacobian $U'_{\tau, A}$  as the identity operation (i.e., multiply by one)
 - The gradient used by FOMAML in the outer-loop is
 	$$g_{FOMAML} = L'_{\tau,B}(U_{\tau,A}(\phi))$$
-	- Thus, FOMAML can be implemented in a simpler way
-
+	- Thus, FOMAML can be implemented in a **simpler way**
 ## Reptile
-![[reptile-algo.png]]
+![[reptile-algo.png|600]]
 
 # Evaluation
 
