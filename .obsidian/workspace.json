@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General Notes/Deep Learning.md",
+                "file": "General Notes/CybORG.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Deep Learning"
+              "title": "CybORG"
             }
           },
           {
@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -273,20 +273,26 @@
       }
     ]
   },
-  "active": "8df6c330b9cd8f03",
+  "active": "a345b4a99b16c930",
   "lastOpenFiles": [
+    "Papers/Focus/2017-arxiv-learning-to-RL-wang.pdf",
+    "Papers/Focus/2017-ICLR-fast-RL-via-slow-RL-Duan.pdf",
+    "Papers/Focus/2019-arxiv-meta-rl-as-task-inference-Humplik.pdf",
+    "Papers/Focus/2020-ICLR-varibad-bayes-adaptive-deep-RL-via-meta-learning-Zintgraf.pdf",
+    "Papers/Focus/2021-arxiv-linear-representation-meta-RL-for-instant-adaptation-Peng.pdf",
+    "Papers/Focus/2023-NeurIPS-recurrent-hypernetworks-are-strong-in-meta-RL-Beck.pdf",
+    "General Notes/Meta-Reinforcement Learning.md",
+    "General Notes/Deep Learning.md",
+    "General Notes/Long Short-Term Memory.md",
     "General Notes/Game Theory.md",
     "General Notes/Bayes' Theorem.md",
-    "General Notes/CyBORG.md",
-    "General Notes/Meta-Reinforcement Learning.md",
-    "General Notes/Long Short-Term Memory.md",
+    "General Notes/CybORG.md",
     "Paper Notes/2017 - Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks.md",
     "Paper Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta.md",
     "Paper Notes/2018 - On First-Order Meta-Learning Algorithms - Nichol.md",
     "Paper Notes/2020 - Adaptive Cyber Defense Against Multi-Stage Attacks Using Learning-based  POMDP - Hu.md",
     "Reference Images/lstm-step-3.png",
     "Reference Images/lstm-gru.png",
-    "General Notes/Deep Learning.md",
     "Reference Images/lstm-step-2.png",
     "Reference Images/lstm-peephole.png",
     "Reference Images/lstm-coupled.png",
@@ -312,15 +318,9 @@
     "Papers/Focus/2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li.pdf",
     "General Notes/Deep Reinforcement Learning.md",
     "Paper Notes/2022 - Robust Moving Target Defense against Unknown Attacks A Meta-Reinforcement Learning Approach - Li.md",
-    "Paper Notes/2020 - Multi-agent Reinforcement Learning in Bayesian Stackelberg Markov Games for Adaptive Moving Target Defense - Sengupta.md",
     "Papers/Focus/2018-arxiv-first-order-meta-learning-algo-Nichol.pdf",
     "Untitled.canvas",
     "Papers/Focus/2023-arxiv-reptile-algorithm-RL-for-mario-Jain.pdf",
-    "Papers/Focus/2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf",
-    "Papers/Focus/2012-NIPS-efficient-bayes-adaptive-reinforcement-learning-using-sample-based-search-Guez.pdf",
-    "Papers/Focus/2020-TransPrivSec-adaptive-defense-multi-stage-attack-using-POMDP-Hu.pdf",
-    "Papers/Focus/2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf",
-    "Papers/Focus/2022-arxiv-deep-interactive-bayesian-RL-via-meta-learning-Zintgraf.pdf",
-    "Papers/Filtered/security/2002-CSFW-two-formal-analyses-of-attack-graphs-Jha.pdf"
+    "Papers/Focus/2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf"
   ]
 }
