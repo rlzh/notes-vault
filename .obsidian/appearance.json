@@ -4,5 +4,6 @@
   "showViewHeader": true,
   "baseFontSizeAction": true,
   "baseFontSize": 12,
-  "nativeMenus": true
+  "nativeMenus": true,
+  "textFontFamily": "Arial,Times New Roman"
 }

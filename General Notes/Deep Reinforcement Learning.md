@@ -118,7 +118,7 @@
 			&= \sum_\tau [\Pi_{t=0}P(s_{t+1}|s_t, a_t)\pi_{\theta}(a_t|s_t)]R(\tau)
 		\end{align}
 		$$
-	- $R(\tau)$ is the return from an arbitrary trajectory $\tau$
+	- $R(\tau)$ is **the return** from an arbitrary trajectory $\tau$
 	- $P(\tau;\theta) = \Pi_{t=0}P(s_{t+1}|s_t, a_t)\pi_{\theta}(a_t|s_t)$ is  the probability of each possible trajectory $\tau$ 
 		- This probability depends on $\theta$, since it defines the policy $\pi_\theta$ that is used to select the actions of the trajectory
 	- $J(\theta)$ is calculated by summing for all over all trajectories 
@@ -134,10 +134,11 @@
 			- This can be addressed through [[#Policy Gradient Theorem]]
 # Policy Gradient Theorem
 - Reformulates the [[#Objective function]] of policy gradient approach into a differentiable function that **==does not require the differentiation of the state distribution (environment dynamics)==**
-- For any differentiable policy and for any policy-based objective function, the policy [[Calculus#Gradient|gradient]] can be formulated as
-	$$\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} [\nabla_\theta log_{\pi_\theta}(a_t|s_t)R(\tau)]$$
+- For *any differentiable policy and for any policy-based objective function*, the policy [[Calculus#Gradient|gradient]] can be formulated as
+	$$\nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta} [\nabla_\theta \log{\pi_\theta}(a_t|s_t)R(\tau)]$$
+	 - $R(\tau)$ is **the return** from an arbitrary trajectory $\tau$
 	 - The objective function is updated as, 
-		 $$J(\theta) = \mathbb{E}[log(\pi_\theta(a_t|s_t))R(\tau)]$$
+		 $$J(\theta) = \mathbb{E}[\log(\pi_\theta(a_t|s_t))R(\tau)]$$
 ## Details
 - The objective function we want to optimize is 
 		$$
@@ -202,7 +203,7 @@
 	- $R(\tau)$ is the scoring (reward) function that **pushes probabilities for state-action pairs up** **if return is high** and **pushes probabilities down if return is low**
 	- This idea can also be applied across **multiple $m$ episodes (trajectories)** to estimate the [[Calculus#Gradient|gradient]]
 	- $m$ is the **batch size**
-		$$\nabla_\theta J(\theta) \approx \widehat{g} = \frac{1}{m} \sum^m_{i=1}\sum_{t=0}\nabla_\theta log({\pi_\theta}(a^{(i)}_t|s^{(i)}_t))R(\tau^{(i)})$$
+		$$\nabla_\theta J(\theta) \approx \widehat{g} = \frac{1}{m} \sum^m_{i=1}\sum_{t=0}\nabla_\theta \log({\pi_\theta}(a^{(i)}_t|s^{(i)}_t))R(\tau^{(i)})$$
 - This method is **==unbiased==** because it uses the **true return** (not an estimated return) 
 - Because an *entire* episode is used to calculate return, there is **high variance in policy gradient estimation**
 	- Variance is due to *stochasticity* in the environment and the policy 
@@ -229,15 +230,17 @@
 		![[a2c-3.png]]
 	4. The actor updates its policy parameters $\theta$ using the Q-value
 		$$\Delta\theta = \alpha \nabla_{\theta}(\log(\pi_{\theta}(a|s)))\widehat{q}_w(s,a)$$
+		- The Q-value $\hat{q}_w$ is given by the **critic** **NN**
 		- $\alpha$ is a separate learning rate for the actor network
-	5. After this update, The actor produces the next action $A_{t+1}$ given the new state $S_{t+1}$
-	6. The critic updates its value parameters
+	1. After this update, The actor produces the next action $A_{t+1}$ given the new state $S_{t+1}$
+	2. The critic updates its value parameters
 			$$\Delta w = \beta (R(s,a) + \gamma \widehat{q}_w(s_{t+1}, a_{t+1})- \widehat{q}_w(s_t, a_t))\nabla_w\widehat{q}_w(s_t,a_t)$$
-		- $R(s,a) + \gamma \widehat{q}_w(s_{t+1}, a_{t+1})- \widehat{q}_w(s_t, a_t)$ is the **TD error** 
+		- $R(s,a) + \gamma \widehat{q}_w(s_{t+1}, a_{t+1})- \widehat{q}_w(s_t, a_t)$ is the [[Reinforcement Learning#TD Error|TD Error]]
 		- $\beta$ is a separate learning rate for the critic network
 		- $\nabla_w\widehat{q}_w(s_t,a_t)$ is the **gradient of the value function**
 ### Advantage Function
 - Can be used in place of the [[Reinforcement Learning#Action-value function|action-value function]] to provide better stability to the model
+- Also known as **==gain==**
 - **Main idea**: use a function that calculates the relative of an action compared to other possible actions at a given state
 	- **i.e., how taking an action at a state is better compared to the average value of the state** represented by $V(s)$
 - The Advantage function is defined as,
@@ -245,7 +248,7 @@
 	- This function calculates the **extra reward we get** if we take this action at that state compared to the mean reward at the state
 	- If $A(s,a) > 0$: the [[Calculus#Gradient|gradient]] pushes in that direction
 	- If $A(s,a) < 0$: the [[Calculus#Gradient|gradient]] pushes in the opposite direction
-- To avoid needing to implement *two value functions* $Q(s,a)$ and $V(s)$, we use the TD error as an estimator 
+- To avoid needing to implement *two value functions* $Q(s,a)$ and $V(s)$, we use the [[Reinforcement Learning#TD Error|TD error]] as an estimator 
 	$$
 	\begin{align}
 	A(s,a) &= Q(s,a) - V(s)\\
@@ -264,6 +267,10 @@
 	- Goal is to update the policy **conservatively**
 	- To do this we need to measure how much the current policy changed compared to the previous using a *ratio calculation*
 		- Clip this to a range $[1-\epsilon, 1+\epsilon]$ and remove incentive to deviate too far from the previous policy (hence **proximal** policy term)
+## Surrogate Objective Function
+- Update policy probabilities based on *impulse* and *advantage*
+ $$L^\text{impulse}(\theta) = \frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_\text{old}}(a_t|s_t)}A_t$$
+
 ## Clipped Surrogate Objective Function
 - Redesigned [[#Objective function]] from [[#Policy Gradient Theorem]] that ==**avoids (destructively) large weight updates**==
 	$$

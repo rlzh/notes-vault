@@ -1,0 +1,19 @@
+#paper #meta-learning #ML #deeplearning 
+**author:** Chelsea Finn
+**conference/journal:** PMLR
+**year**: 2017
+**file:** [[2017-PMLR-model-agnostic-meta-learning-for-fast-adaptation-of-DN-Finn.pdf]]
+# Summary
+todo...
+# Approach
+todo...
+# Evaluation
+todo...
+# Implementation
+todo...
+# Notables
+todo...
+# Future Work
+todo...
+
+

@@ -4,81 +4,67 @@
     "type": "split",
     "children": [
       {
-        "id": "fa67b64c69c40947",
+        "id": "3e4bac304793a8d1",
         "type": "tabs",
         "children": [
           {
-            "id": "6e648601da5c0219",
+            "id": "99d4af039f5b2d12",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Paper Notes/2020 - Multi-agent Reinforcement Learning in Bayesian Stackelberg Markov Games for Adaptive Moving Target Defense - Sengupta.md",
+                "file": "General Notes/Meta-Learning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2020 - Multi-agent Reinforcement Learning in Bayesian Stackelberg Markov Games for Adaptive Moving Target Defense - Sengupta"
+              "title": "Meta-Learning"
             }
           },
           {
-            "id": "f57af9cb1541c014",
+            "id": "8df6c330b9cd8f03",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Paper Notes/2020 - Adaptive Cyber Defense Against Multi-Stage Attacks Using Learning-based  POMDP - Hu.md",
+                "file": "General Notes/Long Short-Term Memory.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2020 - Adaptive Cyber Defense Against Multi-Stage Attacks Using Learning-based  POMDP - Hu"
+              "title": "Long Short-Term Memory"
             }
           },
           {
-            "id": "c5fb04d1081ddeb0",
+            "id": "a345b4a99b16c930",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General Notes/Deep Reinforcement Learning.md",
+                "file": "General Notes/Deep Learning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Deep Reinforcement Learning"
+              "title": "Deep Learning"
             }
           },
           {
-            "id": "99b43de7bafbf912",
+            "id": "625cc4813e7f99ee",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "General Notes/Reinforcement Learning.md",
+                "file": "General Notes/Machine Learning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Reinforcement Learning"
-            }
-          },
-          {
-            "id": "878a336fb3c27093",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "General Notes/Markov Decision Process.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Markov Decision Process"
+              "title": "Machine Learning"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -109,7 +95,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#gametheory",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -134,7 +120,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 281.500732421875
+    "width": 283.500732421875
   },
   "right": {
     "id": "d2d5cadf429dda39",
@@ -196,10 +182,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "General Notes/Deep Reinforcement Learning.md"
+                "file": "Paper Notes/2018 - On First-Order Meta-Learning Algorithms - Nichol.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Deep Reinforcement Learning"
+              "title": "Outline of 2018 - On First-Order Meta-Learning Algorithms - Nichol"
             }
           },
           {
@@ -235,54 +221,106 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "c5fb04d1081ddeb0",
+  "floating": {
+    "id": "21490483174f0b7f",
+    "type": "floating",
+    "children": [
+      {
+        "id": "5a77e2fe06f33a57",
+        "type": "window",
+        "children": [
+          {
+            "id": "01df27dfbcc8a628",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "8f2d9fc7a84d67ed",
+                "type": "leaf",
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "Papers/Focus/2017-PMLR-model-agnostic-meta-learning-for-fast-adaptation-of-DN-Finn.pdf"
+                  },
+                  "icon": "lucide-file-text",
+                  "title": "2017-PMLR-model-agnostic-meta-learning-for-fast-adaptation-of-DN-Finn"
+                }
+              },
+              {
+                "id": "a9df638e79830873",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Paper Notes/2018 - On First-Order Meta-Learning Algorithms - Nichol.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "2018 - On First-Order Meta-Learning Algorithms - Nichol"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical",
+        "x": 1984,
+        "y": 37,
+        "width": 1856,
+        "height": 1043,
+        "maximize": true,
+        "zoom": 2.5
+      }
+    ]
+  },
+  "active": "8df6c330b9cd8f03",
   "lastOpenFiles": [
-    "General Notes/Statistics.md",
-    "General Notes/Information Theory.md",
-    "General Notes/Deep Reinforcement Learning.md",
-    "Pasted image 20241213005547.png",
-    "General Notes/Reinforcement Learning.md",
-    "Reference Images/reinforce-algo-variance-vis.png",
-    "General Notes/Deep Learning.md",
-    "General Notes/Problem Complexity.md",
-    "General Notes/Machine Learning.md",
-    "Reference Images/gradient-descent-visual.png",
-    "General Notes/Calculus.md",
-    "Paper Notes/2020 - Adaptive Cyber Defense Against Multi-Stage Attacks Using Learning-based  POMDP - Hu.md",
-    "Reference Images/value-iteration-algo.png",
-    "Reference Images/gradient-descent.png",
-    "2024-12-12.md",
-    "Untitled.canvas",
-    "Reference Images/TD-update-step.png",
-    "Reference Images/stable-deep-q-learning-algo.png",
-    "Reference Images/q-learning-algo.png",
-    "Templates/Paper Review Template.md",
-    "README.md",
-    "Paper Drafts/SEAMS 2025.md",
-    "General Notes/Stackelberg Game.md",
+    "General Notes/Game Theory.md",
     "General Notes/Bayes' Theorem.md",
-    "General Notes/CVSS.md",
-    "General Notes/Linear Programming.md",
-    "General Notes/Laplace Transform.md",
-    "General Notes/Foundational Logic and Reasoning.md",
-    "General Notes/Cyber Security.md",
-    "Reference Images/obj-function-policy-gradient.png",
-    "Reference Images/TD-target-calc.png",
+    "General Notes/CyBORG.md",
+    "General Notes/Meta-Reinforcement Learning.md",
+    "General Notes/Long Short-Term Memory.md",
+    "Paper Notes/2017 - Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks.md",
     "Paper Notes/2017 - A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications - Sengupta.md",
-    "2012-NIPS-efficient-bayes-adaptive-reinforcement-learning-using-sample-based-search-Guez.pdf.md",
-    "Untitled 1.md",
-    "General Notes/Markov Decision Process.md",
-    "Papers/Focus/2018-arxiv-first-order-meta-learning-algo-Nichol.pdf",
     "Paper Notes/2018 - On First-Order Meta-Learning Algorithms - Nichol.md",
-    "Paper Notes/2012 - Efficient Bayes-Adaptive Reinforcement Learning using Sample-Based Search - Guez.md",
+    "Paper Notes/2020 - Adaptive Cyber Defense Against Multi-Stage Attacks Using Learning-based  POMDP - Hu.md",
+    "Reference Images/lstm-step-3.png",
+    "Reference Images/lstm-gru.png",
+    "General Notes/Deep Learning.md",
+    "Reference Images/lstm-step-2.png",
+    "Reference Images/lstm-peephole.png",
+    "Reference Images/lstm-coupled.png",
+    "General Notes/Machine Learning.md",
+    "Reference Images/lstm-cell-state.png",
+    "Reference Images/lstm-gate.png",
+    "Reference Images/lstm-forget-gate.png",
+    "General Notes/Meta-Learning.md",
+    "Reference Images/lstm-module.png",
+    "Reference Images/rnn-module.png",
+    "General Notes/Markov Decision Process.md",
+    "General Notes/ML Libraries.md",
+    "General Notes/Simulated Annealing.md",
+    "Untitled.md",
+    "Papers/Focus/2017-PMLR-model-agnostic-meta-learning-for-fast-adaptation-of-DN-Finn.pdf",
+    "Untitled 1.md",
+    "General Notes/Foundational Logic and Reasoning.md",
+    "General Notes/Information Theory.md",
+    "General Notes/Linear Algebra.md",
+    "General Notes/Linear Programming.md",
+    "General Notes/Reinforcement Learning.md",
+    "2025-01-22.md",
     "Papers/Focus/2022-DecisionGTforSec-robust-MTD-against-unknown-attacks-meta-RL-approach-Li.pdf",
+    "General Notes/Deep Reinforcement Learning.md",
+    "Paper Notes/2022 - Robust Moving Target Defense against Unknown Attacks A Meta-Reinforcement Learning Approach - Li.md",
+    "Paper Notes/2020 - Multi-agent Reinforcement Learning in Bayesian Stackelberg Markov Games for Adaptive Moving Target Defense - Sengupta.md",
+    "Papers/Focus/2018-arxiv-first-order-meta-learning-algo-Nichol.pdf",
+    "Untitled.canvas",
     "Papers/Focus/2023-arxiv-reptile-algorithm-RL-for-mario-Jain.pdf",
     "Papers/Focus/2020-arxiv-mult-agent-RL-in-bayesian-stackelberg-markov-games-for-MTD-Sengupta.pdf",
     "Papers/Focus/2012-NIPS-efficient-bayes-adaptive-reinforcement-learning-using-sample-based-search-Guez.pdf",
     "Papers/Focus/2020-TransPrivSec-adaptive-defense-multi-stage-attack-using-POMDP-Hu.pdf",
     "Papers/Focus/2017-AAMAS-GT-approach-to-strat-gen-for-MTD-in-web-apps-Sengupta.pdf",
     "Papers/Focus/2022-arxiv-deep-interactive-bayesian-RL-via-meta-learning-Zintgraf.pdf",
-    "Papers/Filtered/security/2002-CSFW-two-formal-analyses-of-attack-graphs-Jha.pdf",
-    "Papers/Filtered/sas/2023-SEAMS-distrib-MAPEK-for-self-protect-IoT-devices-Riegler.pdf"
+    "Papers/Filtered/security/2002-CSFW-two-formal-analyses-of-attack-graphs-Jha.pdf"
   ]
 }

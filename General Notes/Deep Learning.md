@@ -38,9 +38,9 @@
 	- This allows the NN to approximate non-linear functions
 ### Activation Functions
 - **Popular choices of activation functions** include: the **[[Machine Learning#Logistic Regression|logistic]] function**, **TanH**, and **ReLU**
-#### **TanH** 
+#### TanH 
 - Is the hyperbolic tangent function, which is similar to the logistic function but ranging from -1 to 1 (without reaching them) $$tanh(z) = \frac{e^z-e^{-z}}{e^z+e^{-z}}$$
-#### **ReLU** 
+#### ReLU 
 - Is the rectified linear unit function, which equals zero when its input $z$ is negative and equal $z$ otherwise $$
 		 relu(z) = \begin{cases}
 		 0 \quad \text{if} \quad z < 0\\
@@ -65,7 +65,7 @@
 		- For $o_2$: $out_{o_2} = 0.772928465$
 - **Calculate Total Error**
 	- We then calculate the error for each output neuron using the squared error function and sum them to get the total error $$E_{total} = \sum \frac{1}{2}(target - output)^2$$
-		- ==**Note**: the $\frac{1}{2}$ is included so that the exponent is cancelled when differentiation occurs. The result will eventually be multiplied by a learning rate, so this constant doesn't matter==
+		- ==**Note**: the $\frac{1}{2}$ is included so that the exponent is **cancelled** when differentiation occurs. The result will eventually be multiplied by a *learning rate*, so this constant doesn't matter==
 	- For example, the error for $o_1$ is $$E_{o_1} = \frac{1}{2}(target_{o_1} - out_{o_1})^2 = \frac{1}{2}(0.01 - 0.75136507)^2 = 0.274811083$$
 	- Repeating this for $o_2$ we get $E_{o_2} = 0.023450026$
 	- $E_{total} = E_{o_1} + E_{o_2} = 0.274811083 + 0.023450026 = 0.298371109$
@@ -160,15 +160,79 @@
 		- Modern solutions to this problem is to use better activation functions, such as ReLU, as well as techniques such as skip connections in residual NNs
 ## Recurrent Neural Network
 - Recurrent neural networks (RNNs) are used to *label*, *classify*, or *generate* **sequences**
-	- A sequence is a matrix, each row of which is a feature vector and the order of the rows matters
-	- To *label* a sequence is to predict a class for each feature vector in a sequence
-	- To *classify* a sequence is to predict a class for the entire sequence
+	- A sequence is a matrix, where **each row is a feature vector** and the **order of the rows matters**
+	- To *label* a sequence is to predict a class **for each feature vector** in a sequence
+	- To *classify* a sequence is to predict a **class for the entire sequence**
 	- to *generate* a sequence is to output another sequence relevant to the input sequence
 - RNNs are often used in text and speech processing (because sentences are naturally sequences of words/punctuation marks)
 - RNNs are **not feed-forward**; it contains **loops**
-	- The idea is that each unit $u$ of the recurrent layer $l$ has a real-valued **state** $h_{l,u}$, which can be seen as the memory of the unit
+	- Loops allow for information to persist
+	- Can be thought of as multiple copies of the same network, each passing a message to a successor
+	- The idea is that each unit $u$ of the recurrent layer $l$ has a real-valued **state** $h_{l,u}$, which can be seen as the **memory of the unit** $u$
+	- Each unit $u$ in each layer $l$ receives two inputs: 
+		- A vector of states from the previous layer $l-1$
+		- A vector of states from the current layer $l$ from the **previous time step** $t-1$
 	![[recurrent-network.png]]
-	- 
+	- In the figure above, the first (*leftmost*) layer receives a feature vector as input
+	- The second layer receives the output of the first layer as input
+	- Each training example is a matrix in which each row is a feature vector
+	- For simplicity, consider a matrix of feature vectors as a sequence of vectors $\mathbf{X} = [\mathbf{x}^1, \mathbf{x}^2, ...,\mathbf{x}^{t-1}, \mathbf{x}^t, \mathbf{x}^{t+1}, ..., \mathbf{x}^{\text{length}_\mathbf{X}}]$ 
+		- $\text{length}_\mathbf{X}$ is the length of the input sequence
+		- If the input example $\mathbf{X}$ is a *text sequence*, then feature vector $x^t$ for each $t=1,...\text{length}_\mathbf{X}$ represents a word in the sentence at position $t$
+	- The feature vectors from the input example are *read* by the NN sequentially in order of timestamps, denoted by $t$
+	- To update the state $h_{l,u}^t$ at each time step $t$ in each unit $u$ of layer $l$, we first calculate a **linear combination** of the input feature vector with the state vector $\mathbf{h}_{l,u}^{t-1}$ of the same layer but from the previous time step $t-1$
+		- The linear combination is calculated using **two parameter vectors $\mathbf{w}_{l,u}$ and $\mathbf{u}_{l,u}$ and a parameter $b_{l,u}$**
+		- The value $h^{t}_{l,u}$ is then obtained by applying the **activation function** $g_1$ (e.g., [[#TanH]])to the result of the linear combination 
+	- The output $\mathbf{y}_{l}^t$ is typically a vector calculated for the whole layer $l$ at once
+		- To obtain $\mathbf{y}_{l}^t$, we use another activation function $\mathbf{g}_2$, which takes a vector as input and returns a vector of the same dimensionality
+		- $\mathbf{g}_2$ is applied to a linear combination of the state vector values $\mathbf{h}^t_{l,u}$ and a parameter matrix $\mathbf{V}_l$ and a parameter vector $\mathbf{c}_{l,u}$
+		- In classification problems, the typical choice for $\mathbf{g}_2$ is the **softmax function**
+			$$
+			\mathbf{\sigma}(\mathbf{z}) = [\sigma^{(1)}, ...,\sigma^{(D)}] 
+			$$
+			- Where $\sigma^{(j)} = \frac{\exp(z^{(j)})}{\sum_{k=1}^D \exp(z^{(k)})}$ , which is a generalization of the [[Machine Learning#Logistic Regression|sigmoid]] function and has the property that $\sum_{j=1}^D\sigma^{(j)} = 1$ and $\sigma^{(j)} > 0$ for all $j$
+	- The values of $\mathbf{w}_{l,u}, \mathbf{u}_{l,u}, b_{l,u}, \mathbf{V}_{l,u}, \mathbf{c}_{l,u}$ are computed using [[Machine Learning#Gradient Descent|gradient descent]] and [[#Backpropagation]] 
+		- A special version of backpropagation is used for RNN called **backpropagation through time**
+- **Problems**
+	- TanH and softmax suffer from [[Machine Learning#Vanishing Gradient|vanishing gradient]] problem
+	- As length of input sequence grows, the feature vectors from the beginning of the sequence tend to be **forgotten**
+		- The state of each unit (i.e., the memory of the network) becomes significantly affected by more recent feature vectors
+		- In text or speech processing, the cause-effect link between distant words in long sentences can be lost
+## Gated RNN
+- Includes [[#Long Short-Term Memory (LSTM)]] networks and **gated recurrent unit (GRU)** networks
+- Using gated units in RNNs allow networks to store information in their units for future use
+	- Akin to bits in a computer's memory
+	- Reading, writing, erasure of information stored in each unit is controlled by activation functions that take values in range of $(0,1)$
+	- Units learn this decision making from data implemented through the concept of [[#Gated Units]]
+- The trained NN can read the input sequence of feature vectors and decide at some early time step $t$ to keep specific information about feature vectors
+	- This information about earlier feature vectors can later be used by the model to process the feature vectors from near the end of the input sequence
+	- e.g., if the input text starts with *she*, a language processing RNN model could decide to store the information about gender to interpret the word *their* found later in the sentence
+## Gated Units
+- There are several architecture of gated units
+- A simple and effective one is called **minimal gated GRU**: composed of **a memory cell and a forget cell**
+- Using the same example as the diagram above,
+	- A minimal gated GRU unit $u$ in layer $l$ takes two inputs: 
+		- A vector of memory cell values from all units in the same layer from the previous time step, $\mathbf{h}^{t-1}_l$
+		- A feature vector $\mathbf{x}^t$
+	- The gated unit uses the two inputs as follows (*sequentially*)
+	$$
+	\begin{align}
+	\hat{h}^t_{l,u} &\leftarrow g_1(w_{l,u}\mathbf{x}^t + \mathbf{u}_{l,u}\mathbf{h}_l^{t-1}+b_{l,u}) \\
+	\Gamma^t_{l,u} &\leftarrow g_2(\mathbf{m}_{l,u}\mathbf{x}^t + \mathbf{o}_{l,u}\mathbf{h}^{t-1} +a_{l,u}) \\
+	h^t_{l,u} &\leftarrow \Gamma^t_{l,u} \hat{h}^t_l + (1-\Gamma^t_{l,u})h_{l}^{t-1} \\ 
+	\mathbf{h}^t_l &\leftarrow [h^t_{l,1},...,h^t_{l,\text{size}_l}] \\
+	\mathbf{y}^t_l &\leftarrow \mathbf{g}_3(\mathbf{V}_l \mathbf{h}^t_l+\mathbf{c}_{l,u})
+	\end{align}
+	$$
+	- Where $g_1$ is the [[#TanH|tanh]] activation function
+	- $\text{size}_l$ is the number of units in layer $l
+	- $g_2$ is the gate function (implemented as the [[Machine Learning#Logistic Regression|sigmoid function]]) with the range $(0,1)$
+		- The gate, $\Gamma^t_{l,u}$, is close to $0$ means the memory cell will **keep its value** from the previous time steep $h^{t-1}_l$
+		- The gate, $\Gamma^t_{l,u}$, is close to $1$ means the memory cell will **overwrite its value** to be $\hat{h}^t_{l,u}$ 
+		- (This is expressed in the third equation above)
+- The gated unit takes an input and stores it for some time
+	- Equivalent to applying the **identity function** ($f(x)=x$) to the input
+	- i.e., the derivative of the function is a constant, which means a network with gated units using backpropagation through time will not encounter vanishing gradient 
 # Transfer Learning
 - In transfer learning, you use an **existing model** trained on some dataset and adapt the existing model to predict examples from another dataset (different from the one the model was built on)
 	- The new dataset is not like holdout sets used for validation and testing; but rather represent some other phenomenon
@@ -211,4 +275,4 @@
 - Use Gaussian distribution with mean of 0 and variance of `1/input_size`
 ### Orthogonal Initialization
 - Initializes weight matrix with an **[[Linear Algebra#Matrices#Orthogonal Matrix|orthogonal matrix]]**, preserving the orthogonality of the input features
-- Useful for [[#Recurrent Neural Network]] to avoid vanishing gradients
+- Useful for [[#Recurrent Neural Network]] to avoid [[Machine Learning#Vanishing Gradient|vanishing gradients]]

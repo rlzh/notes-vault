@@ -106,8 +106,8 @@
 - Requires little data preparation (don't require feature scaling or centering)
 - DTs are sensitive to small variations in data (unstable!)
 - DTs are **non-parametric model** (vs [[#Linear Regression|linear regression]], [[#Logistic Regression|logistic regression]] - parametric model)
-- DTs have more degree of freedom, doesn't make assumption about data (doesn't assume linear)
-- **Problem**
+- DTs have *more degree of freedom*, doesn't make assumption about data (doesn't assume linear)
+- **Problem Definition**
 	- Give a collection of labelled examples (labels belong to the set $\{0,1\}$), we want to build a DT that would allow us to predict the class given a feature vector
 - **Solution**
 	- There are various formulations to DT learning algorithms
@@ -139,7 +139,7 @@
 		- The split reduces entropy by less than some $\epsilon$ 
 		- The tree reaches some maximum depth $d$
 	- The algorithm doesn't guarantee an optimal solution (decisions to split on each iteration is local)
-	- Most widely used formulation of DT learning algorithm is called **C4.5**
+	- Most widely used formulation of DT learning algorithm is called **C4.5**, which is an extension on ID3
 ## Gini Impurity
 - Score to evaluate if all training instances it applies to belong to same class (how well this decision boundary separates classes). 0 is best = only 1 class under this branch
     - Gini score = 1 - sum{ ratio of class instance among training instances in this node }^2
@@ -203,3 +203,6 @@
 	- **Root Mean Square Propagation** (RMSProp): maintains per-parameter learning rate based on average of recent magnitudes of gradients for each weight
 - Adam calculates the exponential moving average of gradient and the squared gradient
 	- Two parameters $\beta_1$ and $\beta_2$ control the decay rates of the moving averages
+# One-hot
+- A grouping of bits among which the legal combination of values are those with a single high (i.e., 1) bit and all the others are low (i.e., 0)
+	- e.g. $[0,0,0,1,0,0]$ 

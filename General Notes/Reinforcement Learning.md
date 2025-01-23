@@ -316,7 +316,8 @@ $$
 	- TD target is an estimate for both reasons; it samples the expected values in  $R_{t+1} + \gamma v_\pi(S_{t+1})$ and it uses the current value of $V$ instead of the true $v_\pi$
 - TD combines sampling of MC and bootstrap of DP
 - TD (and MC) updates are referred to as ***sample updates***; because they involve looking ahead to a sample successor state
-- ==***TD error*** is a measurement of difference between estimated value of $S_t$ (i.e., $V(S_t)$) and the better estimate $R_{t+1} + \gamma V(S_{t+1})$== 
+#### TD Error 
+- ==Is a measurement of difference between estimated value of $S_t$ (i.e., $V(S_t)$) and the better estimate $R_{t+1} + \gamma V(S_{t+1})$==
 	$$\delta_t = R_{t+1} + \gamma V(S_{t+1}) - V(S_t)$$
 	- MC error can be written as sum of TD errors
 		$$G_t - V(S_t) = \sum^{T-1}_{k=t}\gamma^{k-t}\delta_k$$

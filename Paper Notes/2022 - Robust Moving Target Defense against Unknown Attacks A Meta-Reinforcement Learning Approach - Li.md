@@ -11,15 +11,15 @@
 	- Could resolve this by using fully online approach where defender assumes zero prior knowledge; but this approach requires collecting a large amount of samples covering various attacks, which is typically infeasible
 ## Proposed approach
 - 2 stage meta-RL based MTD framework
-	- Training stage: a meta-MTD policy is learned by solving multiple Stackelberg Markov games using experiences sampled from set of possible attacks
-	- Test stage: adapt meta-policy based on samples collected on the fly
+	- **Training stage**: a meta-MTD policy is learned by solving multiple [[Stackelberg Game|Stackelberg]] Markov games using experiences sampled from set of possible attacks
+	- **Test stage**: adapt meta-policy based on samples collected on the fly
 - Assumes defender has rough estimate of possible attacks
 # Approach
-- Attacker and defender share same state space; both know true state at beginning of time t; but defender acts first
+- Attacker and defender share *same state space*; both know true state at beginning of time $t$; but defender acts first
 - Action space is joint between attacker action space and defender action space
 - Attacker action space and defender action space is the same as state space
-- State transition is deterministically determined by the defender’s action
-- Assumes stationary policies
+- ==State transition is **deterministically**== determined by the defender’s action
+- Assumes *stationary* policies
 - Consider [[Stackelberg Game#Strong Stackelberg Equilibrium (SSE)]] as solution concept
 ## System model
 - System state at any time is based on its configuration; $N$ configurations means $N$ states
@@ -51,12 +51,12 @@
 	- $\textbf{l}$  is the vector losses for all configurations
 		- This is modelled based
 	- These values can be derived from real measurements or publicly available database, such as National Vulnerability Database (NVD)
-- An **attack** is defined as $\xi = (\mu, \textbf{l}, \pi_\mathcal{A})$ 
+- ==An **attack** is defined as $\xi = (\mu, \textbf{l}, \pi_\mathcal{A})$== 
 	- The attack includes its *type and policy*
 - An attacker's policy is considered to be a randomized stationary policy 
 	- $\pi_\mathcal{A}: S \rightarrow \Delta(S)$, which can be equivalently defined as the matrix $\textbf{q}$ where $q_{ij}$ denotes the probability of attacking configuration $j$ if the system is in configuration $i$ in the previous time step
 ## Markov Game Model for MTD
-- Model the sequential interaction between defender and attacker of a given type as two-player [[Game Theory#General-sum Game|general-sum]] [[Reinforcement Learning#Markov Property|Markov]] Game (MG) denoted by
+- Model the sequential interaction between defender and attacker of a given type as two-player [[Game Theory#General-sum Game|general-sum]] [[Markov Decision Process#Markov Property|Markov]] Game (MG) denoted by
 		$$G=(S,A,\mathcal{P},r,\gamma)$$
 	- $S$ is the **state space** 
 		- Both defender and attacker know the true system configuration $s^{t-1}$ at the beginning of time step $t$
@@ -69,10 +69,10 @@
 		- $r_\mathcal{D} = r_{\mathcal{D}}(s^{t-1}, a^t)=-\textbf{1}_{s_t=\tilde{s}^t} \mu_{s^t}l_{s^t} - m_{s^{t-1}{s^t}}$, where $\textbf{1}_{(.)}$ is the indicator function
 		- $r_\mathcal{A} = r_{\mathcal{A}}(s^{t-1}, a^t)=-\textbf{1}_{s_t=\tilde{s}^t} \mu_{s^t}l_{s^t}$
 	- $\gamma \in (0,1]$ is the discount factor 
-- The total expected return is given by,
+- The **total expected return** is given by,
 	$$V^{\pi_\mathcal{D},\pi_\mathcal{A}}_i(s^0) = \mathbb{E}_{\pi_\mathcal{D},\pi_\mathcal{A}}[\sum^\infty_{t=0} \gamma^t r_i (s^{t-1}, a^t|s^0)] = \mathbb{E}_{\pi_\mathcal{D},\pi_\mathcal{A}}[\sum^\infty_{t=0} \gamma^t r_i (s^{t-1}, (s^t,\tilde{s}^t)|s^0)]$$
 	where $i \in {\mathcal{D} ,\mathcal{A}}$
-- Goal of each player is to maximize its expected return
+- Goal of each player is to **maximize its expected return**
 - The approach considers [[Stackelberg Game#Stackelberg Equilibrium|Stackelberg Equilibrium]] (specifically [[Stackelberg Game#Strong Stackelberg Equilibrium (SSE)|Strong Stackelberg Equilibrium (SSE)]]) 
 	- For each defense policy $\pi_\mathcal{D}$, let $B(\pi_\mathcal{D})$ denote the set of attack policies that maximizes $V^{\pi_D,\cdot}_\mathcal{D}(s^0)$ for any $s^0$ 
 		$$
